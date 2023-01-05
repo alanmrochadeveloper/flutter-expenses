@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 300,
-        child: ListView.builder(
+        child: ListView.builder( // com esse recurso aqui, a construção da lista é dinâmica, e vai construindo a view de vários elemento conforme o usuário vai rolando a lista pra baixa.
           itemCount: _transactions.length,
           itemBuilder: (ctx, index) {
             final transaction = _transactions[index];
