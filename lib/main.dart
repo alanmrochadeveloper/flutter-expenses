@@ -75,9 +75,7 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(
         context: context,
         builder: (_) {
-          return TransactionForm(((p0, p1) {
-            // TODO implementar mais tarde
-          }));
+          return TransactionForm(_addTransaction);
         });
   }
 
@@ -89,7 +87,6 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
               onPressed: () {
-                print('pressed');
                 _openTransactionFormModal(context);
               },
               icon: const Icon(Icons.add))
@@ -114,7 +111,6 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          print('pressed floating action button');
           _openTransactionFormModal(context);
         },
       ),
