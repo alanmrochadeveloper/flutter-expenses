@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double) onSubmit;
 
-  TransactionForm(this.onSubmit, {super.key});
+  const TransactionForm(this.onSubmit, {super.key});
 
   @override
   State<TransactionForm> createState() => _TransactionFormState();
@@ -34,13 +32,13 @@ class _TransactionFormState extends State<TransactionForm> {
         child: Column(
           children: [
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Título',
               ),
               controller: titleController,
             ),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Valor (R\$)',
               ),
               keyboardType:
@@ -54,7 +52,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 TextButton(
                   onPressed: _submitForm,
                   style: TextButton.styleFrom(foregroundColor: Colors.purple),
-                  child: Text('Nova Transação'),
+                  child: const Text('Nova Transação'),
                 ),
               ],
             ),

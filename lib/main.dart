@@ -1,8 +1,5 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'models/transactions.dart';
@@ -15,7 +12,7 @@ class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: const HomePage(),
       theme: ThemeData(
           // primarySwatch: Colors.green,
           colorScheme: const ColorScheme(
@@ -50,32 +47,14 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Transaction> _transactions = [
-    // Transaction(
-    //     id: 't1',
-    //     title: 'Novo Tênis de Corrida',
-    //     value: 310.76,
-    //     date: DateTime.now()),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Conta de Luz',
-    //   value: 211.30,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'Conta de algo',
-    //   value: 211.30,
-    //   date: DateTime.now(),
-    // ),
-  ];
+  final List<Transaction> _transactions = [];
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +75,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
+            const SizedBox(
               width: double.infinity,
               child: Card(
                 color: Colors.blue,
