@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'components/chart.dart';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'models/transactions.dart';
@@ -54,7 +55,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Transaction> _transactions = [];
+  final List<Transaction> _transactions = [
+    Transaction(
+        id: 't0',
+        title: 'transacao antiga',
+        value: 213.76,
+        date: DateTime.now().subtract(const Duration(days: 33))),
+    Transaction(
+        id: 't1',
+        title: 'Novo Tenis de Corrida',
+        value: 310.76,
+        date: DateTime.now().subtract(const Duration(days: 3))),
+    Transaction(
+        id: 't2',
+        title: 'Conta de Luz',
+        value: 211.30,
+        date: DateTime.now().subtract(const Duration(days: 4)))
+  ];
+
+  List<Transaction> get _recentTransactions {
+    return _transactions
+        .where((tr) =>
+            tr.date.isAfter(DateTime.now().subtract(const Duration(days: 7))))
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +99,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                elevation: 5,
-                child: Text('Gráfica'),
-              ),
-            ),
+            Chart(recentTransaction: _recentTransactions),
             TransactionList(_transactions),
           ],
         ),
